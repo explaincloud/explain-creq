@@ -1,8 +1,8 @@
 //---------------------------------------------------------------------
-// github    https://github.com/explaincloud/explain-creq
-// version   1.0.0
-// author    Sansnn
-// license   MIT
+// github        https://github.com/explaincloud/explain-creq
+// organization  Explain Cloud
+// author        Sansnn
+// license       MIT
 //---------------------------------------------------------------------
 
 function callFunction(options, extend) {
