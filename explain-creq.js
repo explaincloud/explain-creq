@@ -31,7 +31,7 @@ function callFunction(options, extend) {
 				// response内return false表示失败会进入reject
 				resInterceptor = creq.interceptor.callFunction.response(res, options, extend)
 			}
-			if (resInterceptor === null) {
+			if (resInterceptor === null || resInterceptor === undefined) {
 				res.data = res.result
 				delete res.result
 				resolve(res)
@@ -76,7 +76,7 @@ function request(options, extend) {
 					// response内return false表示失败会进入reject
 					resInterceptor = creq.interceptor.request.response(res, options, extend)
 				}
-				if (resInterceptor === null) {
+				if (resInterceptor === null || resInterceptor === undefined) {
 					resolve(res)
 				} else if (resInterceptor === false) {
 					reject(res)

@@ -1,6 +1,6 @@
 {
   "name": "explain-creq",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "uniCloud.callFunction and uni.request",
   "main": "explain-creq.js",
   "scripts": {
