@@ -24,6 +24,9 @@ function callFunction(options, extend) {
 				data: options.data
 			}
 		}).then(res => {
+      // callFunction返回的关键数据是result，request返回的是data，为了与request统一，将result替换为data
+			res.data = res.result
+			delete res.result
 			// 检查响应拦截
 			let resInterceptor = null
 			if (creq.interceptor.callFunction.response &&
@@ -32,16 +35,10 @@ function callFunction(options, extend) {
 				resInterceptor = creq.interceptor.callFunction.response(res, options, extend)
 			}
 			if (resInterceptor === null || resInterceptor === undefined) {
-				res.data = res.result
-				delete res.result
 				resolve(res)
 			} else if (resInterceptor === false) {
-				res.data = res.result
-				delete res.result
 				reject(res)
 			} else {
-				resInterceptor.data = resInterceptor.result
-				delete resInterceptor.result
 				resolve(resInterceptor)
 			}
 		}).catch(err => {
